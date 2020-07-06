@@ -28,7 +28,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
         switch(cmd) {
             // !ping
-            case 'start':
+            case 'remind':
 				//time_now = Date();
 				bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
 				//setTimeout(function sendPing() {bot.sendMessage({to: channelID, message: 'Pong!'});}, 2000);
