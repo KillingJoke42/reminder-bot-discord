@@ -18,9 +18,6 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 
-function sendPing() {
-	bot.sendMessage({to: channelID, message: 'Pong!'});
-}
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
@@ -35,8 +32,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				//time_now = Date();
 				while(1)
 				{
-					//bot.sendMessage({to: channelID, message: 'Pong!'});
-					setTimeout(sendPing, 2000);
+					bot.sendMessage({to: channelID, message: 'Pong!'});
+					setTimeout(function sendPing() {bot.sendMessage({to: channelID, message: 'Pong!'});}, 2000);
 				}
             break;
             // Just add any case commands if you want to..
