@@ -30,11 +30,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // !ping
             case 'start':
 				//time_now = Date();
-				while(1)
-				{
-					bot.sendMessage({to: channelID, message: 'Pong!'});
-					setTimeout(function sendPing() {bot.sendMessage({to: channelID, message: 'Pong!'});}, 2000);
-				}
+				bot.sendMessage({to: channelID, message: 'Pong!'});
+				//setTimeout(function sendPing() {bot.sendMessage({to: channelID, message: 'Pong!'});}, 2000);
             break;
             // Just add any case commands if you want to..
          }
