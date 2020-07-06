@@ -1,0 +1,11 @@
+{
+  "name": "annoying-reminder-bot",
+  "version": "1.0.0",
+  "description": "A bot that keeps telling everyone to update the reports channel. So annoying.",
+  "main": "bot.js",
+  "author": "Anant Raina",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "winston": "^3.3.3"
+  }
+}
