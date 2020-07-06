@@ -31,7 +31,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				time_now = Date();
 				while(1)
 				{
-					if (time_now.getUTCHours() == 19 && time_now.getUTCMinutes() == 55 && time_now.getUTCSeconds() == 55)
+					if (time_now.getUTCHours() == 19 && time_now.getUTCMinutes() == 58 && time_now.getUTCSeconds() == 50)
 					{
 						bot.sendMessage({to: channelID, message: 'Pong!'});
 						break;
