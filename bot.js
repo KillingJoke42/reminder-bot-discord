@@ -17,6 +17,10 @@ bot.on('ready', function (evt) {
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
+function sendPing() {
+	bot.sendMessage({to: channelID, message: 'Pong!'});
+}
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
@@ -28,14 +32,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         switch(cmd) {
             // !ping
             case 'start':
-				time_now = Date();
+				//time_now = Date();
 				while(1)
 				{
-					if (time_now.getUTCHours() == 20 && time_now.getUTCMinutes() == 10 && time_now.getUTCSeconds() == 0)
-					{
-						bot.sendMessage({to: channelID, message: 'Pong!'});
-						break;
-					}
+					//bot.sendMessage({to: channelID, message: 'Pong!'});
+					setTimeout(sendPing, 2000);
 				}
             break;
             // Just add any case commands if you want to..
