@@ -27,11 +27,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
         switch(cmd) {
             // !ping
-            case 'ping':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Pong!'
-                });
+            case 'start':
+				time_now = Date();
+				while(1)
+				{
+					if (time_now.getUTCHours() == 19 && time_now.getUTCMinutes() == 55 && time_now.getUTCSeconds() == 55)
+					{
+						bot.sendMessage({to: channelID, message: 'Pong!'});
+						break;
+					}
+				}
             break;
             // Just add any case commands if you want to..
          }
