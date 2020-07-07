@@ -21,25 +21,6 @@ bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
-	var reminded = false;
-	while(true)
-	{
-		//var time_now = Date();
-		var hours = (new Date()).getUTCHours();
-		if (hours == 15)
-		{
-			//console.log("Time: " + hours + "; Remind: " + reminded);
-			if (reminded == false)
-			{
-				bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
-				reminded = true;
-			}
-		}
-		else
-		{
-			reminded = false;
-		}
-	}
 });
 	
 bot.on('message', function (user, userID, channelID, message, evt) {
@@ -51,15 +32,26 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         //args = args.splice(1);
         switch(cmd) {
-            case 'issue':
+            case 'start':
 				//bot.sendMessage({to: channelID, message: 'ping!'});
-				switch(args[1]) {
-					case 'start':
-						console.log("Issue started. ID: " + args[2] + "; subject: " + args[3]);
-						break;
-					case 'close':
-						console.log("Issue closed. ID: " + args[2]);
-						break;
+				var reminded = false;
+				while(true)
+				{
+					//var time_now = Date();
+					var hours = (new Date()).getUTCHours();
+					if (hours == 15)
+					{
+						//console.log("Time: " + hours + "; Remind: " + reminded);
+						if (reminded == false)
+						{
+							bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
+							reminded = true;
+						}
+					}
+					else
+					{
+						reminded = false;
+					}
 				}
             break;
          }
