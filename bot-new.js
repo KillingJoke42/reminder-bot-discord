@@ -31,7 +31,7 @@ bot.on('ready', function (evt) {
 			//console.log("Time: " + hours + "; Remind: " + reminded);
 			if (reminded == false)
 			{
-				console.log("REMIND!!!!");
+				bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
 				reminded = true;
 			}
 		}
