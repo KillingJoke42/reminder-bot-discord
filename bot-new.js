@@ -26,7 +26,7 @@ bot.on('ready', function (evt) {
 	{
 		//var time_now = Date();
 		var hours = (new Date()).getUTCHours();
-		if (hours == 21)
+		if (hours == 15)
 		{
 			//console.log("Time: " + hours + "; Remind: " + reminded);
 			if (reminded == false)
