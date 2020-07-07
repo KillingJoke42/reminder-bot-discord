@@ -32,6 +32,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         //args = args.splice(1);
         switch(cmd) {
+<<<<<<< HEAD
             case 'start':
 				//bot.sendMessage({to: channelID, message: 'ping!'});
 				var reminded = false;
@@ -53,6 +54,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 						reminded = false;
 					}
 				}
+=======
+            // !ping
+            case 'start':
+				//time_now = Date();
+				bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
+				//setTimeout(function sendPing() {bot.sendMessage({to: channelID, message: 'Pong!'});}, 2000);
+>>>>>>> parent of 2e512c4... Update bot.js
             break;
          }
      }
