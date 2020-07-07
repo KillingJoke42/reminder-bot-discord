@@ -1,6 +1,8 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+//var jsonfile = require('jsonfile');
+
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
@@ -12,12 +14,34 @@ var bot = new Discord.Client({
    token: auth.token,
    autorun: true
 });
+
+//bot.sendMessage({to: channelID, message: '@everyone'});
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
+	var reminded = false;
+	while(true)
+	{
+		//var time_now = Date();
+		var hours = (new Date()).getUTCHours();
+		if (hours == 15)
+		{
+			//console.log("Time: " + hours + "; Remind: " + reminded);
+			if (reminded == false)
+			{
+				bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
+				reminded = true;
+			}
+		}
+		else
+		{
+			reminded = false;
+		}
+	}
 });
-
+	
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
@@ -25,15 +49,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
        
-        args = args.splice(1);
+        //args = args.splice(1);
         switch(cmd) {
-            // !ping
-            case 'remind':
-				//time_now = Date();
-				bot.sendMessage({to: channelID, message: '@everyone Time to update the #reports channel! Make sure to include the details about Yesterday, Today and any Blockers.'});
-				//setTimeout(function sendPing() {bot.sendMessage({to: channelID, message: 'Pong!'});}, 2000);
+            case 'issue':
+				//bot.sendMessage({to: channelID, message: 'ping!'});
+				switch(args[1]) {
+					case 'start':
+						console.log("Issue started. ID: " + args[2] + "; subject: " + args[3]);
+						break;
+					case 'close':
+						console.log("Issue closed. ID: " + args[2]);
+						break;
+				}
             break;
-            // Just add any case commands if you want to..
          }
      }
 });

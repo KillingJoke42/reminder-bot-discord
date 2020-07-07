@@ -2,9 +2,9 @@
   "name": "annoying-reminder-bot",
   "version": "1.0.0",
   "description": "A bot that keeps telling everyone to update the reports channel. So annoying.",
-  "main": "bot-new.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node bot-new.js"
+    "start": "node bot.js"
   },
   "author": "Anant Raina",
   "dependencies": {
